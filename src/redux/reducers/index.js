@@ -1,10 +1,11 @@
+/* eslint-disable import/named */
 /* eslint-disable no-unused-vars */
 import { combineReducers } from 'redux';
-import { productReducer, selectedProductReducer } from './productReducer';
+import { productReducer, selectedProductsReducer } from './productReducer';
 
 const reducers = combineReducers({
   allProducts: productReducer,
-  product: selectedProductReducer,
+  product: selectedProductsReducer,
 });
 
 export default reducers;

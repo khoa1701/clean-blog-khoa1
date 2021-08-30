@@ -2,6 +2,38 @@
 import { ActionTypes } from '../contants/action-types';
 
 const initialState = {
+  homebody: [
+    {
+      post_title: 'Man must explore, and this is exploration at its greatest',
+      post_subtitle: 'Problems look mighty small from 150 miles up',
+      post_meta: 'on September 24, 2021',
+    },
+    {
+      post_title: 'Man must explore, and this is exploration at its greatest',
+      post_subtitle: 'Problems look mighty small from 150 miles up',
+      post_meta: 'on September 24, 2021',
+    },
+    {
+      post_title: 'Man must explore, and this is exploration at its greatest',
+      post_subtitle: 'Problems look mighty small from 150 miles up',
+      post_meta: 'on September 24, 2021',
+    },
+    {
+      post_title: 'Man must explore, and this is exploration at its greatest',
+      post_subtitle: 'Problems look mighty small from 150 miles up',
+      post_meta: 'on September 24, 2021',
+    },
+    {
+      post_title: 'Man must explore, and this is exploration at its greatest',
+      post_subtitle: 'Problems look mighty small from 150 miles up',
+      post_meta: 'on September 24, 2021',
+    },
+    {
+      post_title: 'Man must explore, and this is exploration at its greatest',
+      post_subtitle: 'Problems look mighty small from 150 miles up',
+      post_meta: 'on September 24, 2021',
+    },
+  ],
   homeheader: [
     {
       page_heading: 'Clean Blog',
@@ -33,15 +65,6 @@ export const productReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_PRODUCTS:
       return { ...state, product: payload };
-    default:
-      return state;
-  }
-};
-
-export const selectedProductReducer = (state = {}, { type, payload }) => {
-  switch (type) {
-    case ActionTypes.SET_PRODUCTS:
-      return { ...state, ...payload };
     default:
       return state;
   }
