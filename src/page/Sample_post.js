@@ -1,22 +1,19 @@
 /* eslint-disable camelcase */
-/* eslint-disable no-console */
 import '../App.css';
 import { useSelector } from 'react-redux';
-import Header from '../components/Header';
+import PostHeader from '../components/PostHeader';
 import Navbar from '../components/nav-bar';
 import Footer from '../components/Footer';
-import Homebody from '../redux/api/api';
 
 function Home() {
   const headerData = useSelector((state) => state.allProducts.homeheader[0]);
   const {
-    page_heading, sub_heading,
+    post_heading, page_heading, meta,
   } = headerData;
   return (
     <>
       <Navbar />
-      <Header page_heading={page_heading} sub_heading={sub_heading} />
-      <Homebody />
+      <PostHeader post_heading={post_heading} page_heading={page_heading} meta={meta} />
       <Footer />
     </>
   );
