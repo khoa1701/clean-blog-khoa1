@@ -2,45 +2,6 @@
 import { ActionTypes } from '../contants/action-types';
 
 const initialState = {
-  aboutbody: [
-    {
-      text_first: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?',
-      text_secound: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!',
-      text_third: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!',
-    },
-  ],
-  homebody: [
-    {
-      post_title: 'Man must explore, and this is exploration at its greatest',
-      post_subtitle: 'Problems look mighty small from 150 miles up',
-      post_meta: 'on September 24, 2021',
-    },
-    {
-      post_title: 'Man must explore, and this is exploration at its greatest',
-      post_subtitle: 'Problems look mighty small from 150 miles up',
-      post_meta: 'on September 24, 2021',
-    },
-    {
-      post_title: 'Man must explore, and this is exploration at its greatest',
-      post_subtitle: 'Problems look mighty small from 150 miles up',
-      post_meta: 'on September 24, 2021',
-    },
-    {
-      post_title: 'Man must explore, and this is exploration at its greatest',
-      post_subtitle: 'Problems look mighty small from 150 miles up',
-      post_meta: 'on September 24, 2021',
-    },
-    {
-      post_title: 'Man must explore, and this is exploration at its greatest',
-      post_subtitle: 'Problems look mighty small from 150 miles up',
-      post_meta: 'on September 24, 2021',
-    },
-    {
-      post_title: 'Man must explore, and this is exploration at its greatest',
-      post_subtitle: 'Problems look mighty small from 150 miles up',
-      post_meta: 'on September 24, 2021',
-    },
-  ],
   homeheader: [
     {
       page_heading: 'Clean Blog',

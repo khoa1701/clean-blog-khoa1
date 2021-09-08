@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Link,
+} from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -14,24 +17,24 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ms-auto py-4 py-lg-0">
             <li className="nav-item">
-              <a className="nav-link px-lg-3 py-3 py-lg-4" href="index.html">
+              <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-lg-3 py-3 py-lg-4" href="about.html">
+              <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/about">
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-lg-3 py-3 py-lg-4" href="post.html">
+              <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/post">
                 Sample Post
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">
+              <Link className="nav-link px-lg-3 py-3 py-lg-4" to="/contact">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

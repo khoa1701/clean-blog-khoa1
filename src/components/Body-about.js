@@ -1,32 +1,27 @@
-/* eslint-disable camelcase */
+/* eslint-disable no-loop-func */
+/* eslint-disable no-plusplus */
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-function Aboutbody() {
-  const bodydata = useSelector((state) => state.allProducts.aboutbody);
-  const bodylist = bodydata.map((data) => {
-    const {
-      text_first,
-      text_secound,
-      text_third,
-    } = data;
-    return (
-      <div>
-        <main className="mb-4">
-          <div className="container px-4 px-lg-5">
-            <div className="row gx-4 gx-lg-5 justify-content-center">
-              <div className="col-md-10 col-lg-8 col-xl-7">
-                <p>{text_first}</p>
-                <p>{text_secound}</p>
-                <p>{text_third}</p>
-              </div>
-            </div>
+function Aboutrender() {
+  const bodydata = useSelector((state) => state.apidata.api[0]);
+  const {
+    id,
+    description,
+  } = bodydata;
+  return (
+    <main className="mb-4">
+      <div className="container px-4 px-lg-5">
+        <div className="row gx-4 gx-lg-5 justify-content-center">
+          <div className="col-md-10 col-lg-8 col-xl-7" key={id}>
+            <p>{description}</p>
+            <p>{description}</p>
+            <p>{description}</p>
           </div>
-        </main>
+        </div>
       </div>
-    );
-  });
-  return bodylist;
+    </main>
+  );
 }
 
-export default Aboutbody;
+export default Aboutrender;

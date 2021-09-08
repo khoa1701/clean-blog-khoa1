@@ -6,15 +6,15 @@ export const setApi = (Apidata) => ({
   payload: Apidata,
 });
 
-export const setProducts = (products) => ({
+export const setProducts = (Apidata) => ({
   type: ActionTypes.SET_PRODUCTS,
-  payload: products,
+  payload: Apidata,
 });
 
-export const selectedProduct = (product) => ({
+export const selectedProduct = (Apidata) => ({
   type: ActionTypes.SELECTED_PRODUCT,
-  payload: product,
+  payload: Apidata,
 });
-export const removeSelectedProduct = () => ({
-  type: ActionTypes.REMOVE_SELECTED_PRODUCT,
-});
+// export const removeSelectedProduct = () => ({
+//   type: ActionTypes.REMOVE_SELECTED_PRODUCT,
+// });

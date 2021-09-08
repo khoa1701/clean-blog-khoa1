@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
-import image from '../assets/img/post-bg.jpg';
+import image from './assets/img/post-bg.jpg';
 
 export default function PostHeader({ post_heading, page_heading, meta }) {
   return (
