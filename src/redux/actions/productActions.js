@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import { ActionTypes } from '../contants/action-types';
 
 export const setApi = (Apidata) => ({
@@ -15,6 +14,7 @@ export const selectedProduct = (Apidata) => ({
   type: ActionTypes.SELECTED_PRODUCT,
   payload: Apidata,
 });
-// export const removeSelectedProduct = () => ({
-//   type: ActionTypes.REMOVE_SELECTED_PRODUCT,
-// });
+
+export const removeSelectedProduct = () => ({
+  type: ActionTypes.REMOVE_SELECTED_PRODUCT,
+});

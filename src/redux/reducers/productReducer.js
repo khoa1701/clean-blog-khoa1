@@ -1,29 +1,35 @@
-/* eslint-disable no-console */
 import { ActionTypes } from '../contants/action-types';
 
 const initialState = {
+  bodyabout: [
+    {
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?',
+      text2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!',
+      text3: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!',
+    },
+  ],
   homeheader: [
     {
-      page_heading: 'Clean Blog',
-      sub_heading: 'A Blog Theme by Start Bootstrap',
+      pageHeading: 'Clean Blog',
+      subHeading: 'A Blog Theme by Start Bootstrap',
     },
   ],
   aboutheader: [
     {
-      page_heading: 'About Me',
-      sub_heading: 'This is what I do',
+      pageheading: 'About Me',
+      subheading: 'This is what I do',
     },
   ],
   contactheader: [
     {
-      page_heading: 'Contact Me',
-      sub_heading: 'Have questions? I have answers.',
+      pageheading: 'Contact Me',
+      subheading: 'Have questions? I have answers.',
     },
   ],
   postheader: [
     {
-      post_heading: 'Man must explore, and this is exploration at its greatest',
-      page_heading: 'Problems look mighty small from 150 miles up',
+      postheading: 'Man must explore, and this is exploration at its greatest',
+      postheading1: 'Problems look mighty small from 150 miles up',
       meta: 'on August 24, 2021',
     },
   ],
@@ -32,14 +38,13 @@ const initialState = {
 export const productReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_PRODUCTS:
-      return { ...state, product: payload };
+      return { ...state, api: payload };
     default:
       return state;
   }
 };
 
 export const selectedProductsReducer = (state = {}, { type, payload }) => {
-  console.log(type);
   switch (type) {
     case ActionTypes.SELECTED_PRODUCT:
       return { ...state, ...payload };

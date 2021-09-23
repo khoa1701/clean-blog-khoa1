@@ -1,11 +1,8 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable camelcase */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import image from './assets/img/home-bg.jpg';
 
-function Header({ page_heading, sub_heading }) {
+function Header({ pageheading, subheading }) {
   return (
     <>
       <header className="masthead" style={{ backgroundImage: `url(${image})` }}>
@@ -14,10 +11,10 @@ function Header({ page_heading, sub_heading }) {
             <div className="col-md-10 col-lg-8 col-xl-7">
               <div className="site-heading">
                 <h1>
-                  {page_heading}
+                  {pageheading}
                 </h1>
                 <span className="subheading">
-                  {sub_heading}
+                  {subheading}
                 </span>
               </div>
             </div>
@@ -28,9 +25,9 @@ function Header({ page_heading, sub_heading }) {
   );
 }
 
-Header.propType = {
-  page_heading: PropType.string.isRequired,
-  sub_heading: PropType.string.isRequired,
+Header.propTypes = {
+  pageheading: PropTypes.string.isRequired,
+  subheading: PropTypes.string.isRequired,
 };
 
 export default Header;

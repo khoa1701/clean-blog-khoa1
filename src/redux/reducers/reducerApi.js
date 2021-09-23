@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { ActionTypes } from '../contants/action-types';
 
 const Apidata = {

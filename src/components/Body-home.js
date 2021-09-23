@@ -1,14 +1,36 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-import React from 'react';
-import {
-  Link,
-} from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import queryString from 'query-string';
+import axios from 'axios';
+import { setApi } from '../redux/actions/productActions';
+import Pagination from './Pagination';
 
-function Homerender() {
-  const bodydata = useSelector((state) => state.apidata.api);
-  const bodylist = bodydata.map((data) => {
+export default function Homebody() {
+  const [staff, setStaff] = useState([]);
+  const [pagination, setPagination] = useState({
+    _page: 1,
+    _limit: 10,
+    _totalRows: 11,
+  });
+  const [filters, setFilters] = useState({
+    _limit: 10,
+    _page: 1,
+  });
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const paramString = queryString.stringify(filters);
+    const api = axios.create({
+      baseURL: `https://js-post-api.herokuapp.com/api/posts?${paramString}`,
+    });
+    api.get('/').then((res) => {
+      setStaff(res?.data);
+      setPagination(res.data.pagination);
+    });
+  }, [filters]);
+  dispatch(setApi(staff));
+  const bodydata = useSelector((state) => state.apidata.api.data);
+  const bodylist = bodydata?.map((data) => {
     const {
       id,
       title,
@@ -21,14 +43,11 @@ function Homerender() {
     const month = months[monthNum];
     const date = fullDate.getDate();
     const year = fullDate.getUTCFullYear();
-
     return (
       <div>
         <div key={id} className="post-preview">
-          <Link to={`/api/${id}`}>
-            <h2 className="post-title">{title}</h2>
-            <h3 className="post-subtitle">{author}</h3>
-          </Link>
+          <h2 className="post-title">{title}</h2>
+          <h3 className="post-subtitle">{author}</h3>
           <p className="post-meta">
             Posted by
             {' '}
@@ -48,7 +67,26 @@ function Homerender() {
       </div>
     );
   });
-  return bodylist;
+  function handlePageChange(newPage) {
+    console.log('New page: ', newPage);
+    setFilters({
+      ...filters,
+      _page: newPage,
+    });
+  }
+  return (
+    <>
+      <div className="container px-4 px-lg-5">
+        <div className="row gx-4 gx-lg-5 justify-content-center">
+          <div className="col-md-10 col-lg-8 col-xl-7">
+            {bodylist}
+            <Pagination
+              pagination={pagination}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
-
-export default Homerender;

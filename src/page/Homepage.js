@@ -1,5 +1,4 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-console */
+import React from 'react';
 import '../App.css';
 import { useSelector } from 'react-redux';
 import {
@@ -10,45 +9,41 @@ import {
 import Header from '../components/Header';
 import Navbar from '../components/nav-bar';
 import Footer from '../components/Footer';
-import Homebody from '../redux/api/api';
-import Aboutrender from '../components/Body-about';
-import Detailrender from '../components/body-homedetail';
+import Homebody from '../components/Body-home';
 import Contactrender from '../components/body-contact';
+import Aboutrender from '../components/Body-about';
 import PostHeader from '../components/PostHeader';
-import Postrender from '../components/body-post';
+// import Postrender from '../components/body-post';
 
 function Home() {
   const headerData = useSelector((state) => state.allProducts.homeheader[0]);
   const {
-    page_heading, sub_heading,
+    pageHeading, subHeading,
   } = headerData;
-  const postData = useSelector((state) => state.allProducts.postheader[0]);
+  const Postheader = useSelector((state) => state.allProducts.postheader[0]);
   const {
-    post_heading, meta,
-  } = postData;
+    postheading, postheading1, meta,
+  } = Postheader;
   return (
     <>
       <Router>
         <Navbar />
         <Switch>
           <Route exact path="/about">
-            <Header page_heading={page_heading} sub_heading={sub_heading} />
+            <Header pageheading={pageHeading} subheading={subHeading} />
             <Aboutrender />
           </Route>
           <Route exact path="/contact">
-            <Header page_heading={page_heading} sub_heading={sub_heading} />
+            <Header pageheading={pageHeading} subheading={subHeading} />
             <Contactrender />
           </Route>
-          <Route path="/:id">
-            <Detailrender />
-          </Route>
           <Route exact path="/">
-            <Header page_heading={page_heading} sub_heading={sub_heading} />
+            <Header pageheading={pageHeading} subheading={subHeading} />
             <Homebody />
           </Route>
           <Route exact path="/post">
-            <PostHeader post_heading={post_heading} page_heading={page_heading} meta={meta} />
-            <Postrender />
+            <PostHeader postheading={postheading} pageheading={postheading1} meta={meta} />
+            {/* <Postrender /> */}
           </Route>
         </Switch>
         <Footer />
