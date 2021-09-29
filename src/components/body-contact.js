@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 function Contactrender() {
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -13,15 +14,14 @@ function Contactrender() {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .max(15, 'Maximum 15 characters')
+        .min(4, 'minimum 4 character')
+        .max(30, 'Maximum 15 characters')
         .required('A name is required.'),
       email: Yup.string()
         .email('Email is not valid.')
         .required('An email is required.'),
-      phone: Yup.number()
-        .min(8, 'minimum 8 number')
-        .max(11, 'Maximum 11 characters')
-        .required('A phone number is required.'),
+      phone: Yup.string()
+        .matches(phoneRegExp, 'Phone number is not valid'),
       message: Yup.string()
         .min(5, 'Mininum 5 characters')
         .max(500, 'Maximum 500 characters')
@@ -50,6 +50,7 @@ function Contactrender() {
                   <input
                     className="form-control"
                     type="text"
+                    name="name"
                     placeholder="Enter your name..."
                     data-sb-validations="required"
                     onChange={formik.handleChange}
@@ -58,7 +59,6 @@ function Contactrender() {
                   <label htmlFor="name">
                     Name
                     {/* <input
-                      name="name"
                       type="text"
                     /> */}
                   </label>
@@ -92,7 +92,7 @@ function Contactrender() {
                 <div className="form-floating">
                   <input
                     className="form-control"
-                    id="phone"
+                    name="phone"
                     type="tel"
                     placeholder="Enter your phone number..."
                     data-sb-validations="required"
@@ -103,7 +103,6 @@ function Contactrender() {
                     Phone Number
                     {/* <input
                       type="text"
-                      name="phone"
                     /> */}
                   </label>
                   {formik.errors.phone && formik.touched.phone && (
