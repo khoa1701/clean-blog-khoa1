@@ -13,7 +13,8 @@ import Homebody from '../components/Body-home';
 import Contactrender from '../components/body-contact';
 import Aboutrender from '../components/Body-about';
 import PostHeader from '../components/PostHeader';
-// import Postrender from '../components/body-post';
+import HomeDetail from '../components/homedetail';
+import Postrender from '../components/body-post';
 
 function Home() {
   const headerData = useSelector((state) => state.allProducts.homeheader[0]);
@@ -29,11 +30,11 @@ function Home() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/about">
+          <Route path="/about">
             <Header pageheading={pageHeading} subheading={subHeading} />
             <Aboutrender />
           </Route>
-          <Route exact path="/contact">
+          <Route path="/contact">
             <Header pageheading={pageHeading} subheading={subHeading} />
             <Contactrender />
           </Route>
@@ -43,8 +44,9 @@ function Home() {
           </Route>
           <Route exact path="/post">
             <PostHeader postheading={postheading} pageheading={postheading1} meta={meta} />
-            {/* <Postrender /> */}
+            <Postrender />
           </Route>
+          <Route path="/post/:dataId" component={HomeDetail} />
         </Switch>
         <Footer />
       </Router>
