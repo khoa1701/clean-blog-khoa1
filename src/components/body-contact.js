@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-alert */
 import React from 'react';
 import * as Yup from 'yup';
@@ -14,20 +13,19 @@ function Contactrender() {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(2, 'Mininum 2 characters')
         .max(15, 'Maximum 15 characters')
-        .required('Required!'),
+        .required('A name is required.'),
       email: Yup.string()
-        .email('Invalid email address')
-        .required('Required'),
+        .email('Email is not valid.')
+        .required('An email is required.'),
       phone: Yup.number()
         .min(8, 'minimum 8 number')
         .max(11, 'Maximum 11 characters')
-        .required('Required!'),
+        .required('A phone number is required.'),
       message: Yup.string()
         .min(5, 'Mininum 5 characters')
         .max(500, 'Maximum 500 characters')
-        .required('Required!'),
+        .required('A message is required.'),
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -54,21 +52,19 @@ function Contactrender() {
                     type="text"
                     placeholder="Enter your name..."
                     data-sb-validations="required"
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
                   />
                   <label htmlFor="name">
                     Name
-                    <input
-                      id="name"
+                    {/* <input
                       name="name"
                       type="text"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.name}
-                    />
+                    /> */}
                   </label>
-                  {formik.touched.name && formik.errors.name ? (
-                    <div>{formik.errors.name}</div>
-                  ) : null}
+                  {formik.errors.name && formik.touched.name && (
+                  <div style={{ color: 'red' }}>A name is required.</div>
+                  )}
                 </div>
                 <div className="form-floating">
                   <input
@@ -77,18 +73,18 @@ function Contactrender() {
                     type="email"
                     placeholder="Enter your email..."
                     data-sb-validations="required,email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
                   />
                   <label htmlFor="email">
                     Email address
-                    <input
+                    {/* <input
                       type="text"
                       name="email"
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                    />
+                    /> */}
                   </label>
                   {formik.errors.email && formik.touched.email && (
-                  <div className="invalid-feedback" data-sb-feedback="name:required">
+                  <div style={{ color: 'red' }}>
                     {formik.errors.email}
                   </div>
                   )}
@@ -100,39 +96,42 @@ function Contactrender() {
                     type="tel"
                     placeholder="Enter your phone number..."
                     data-sb-validations="required"
+                    value={formik.values.phone}
+                    onChange={formik.handleChange}
                   />
                   <label htmlFor="phone">
                     Phone Number
-                    <input
+                    {/* <input
                       type="text"
                       name="phone"
-                      value={formik.values.phone}
-                      onChange={formik.handleChange}
-                    />
+                    /> */}
                   </label>
                   {formik.errors.phone && formik.touched.phone && (
-                  <p>{formik.errors.phone}</p>
+                  <div style={{ color: 'red' }}>
+                    {formik.errors.phone}
+                  </div>
                   )}
                 </div>
                 <div className="form-floating">
                   <textarea
                     className="form-control"
                     id="message"
+                    name="message"
+                    type="text"
                     placeholder="Enter your message here..."
                     style={{ height: '12rem' }}
                     data-sb-validations="required"
+                    value={formik.values.message}
+                    onChange={formik.handleChange}
                   />
                   <label htmlFor="message">
                     Message
-                    <input
-                      type="text"
-                      name="message"
-                      value={formik.values.message}
-                      onChange={formik.handleChange}
-                    />
+                    {/* <input /> */}
                   </label>
                   {formik.errors.message && formik.touched.message && (
-                  <p>{formik.errors.message}</p>
+                  <p style={{ color: 'red' }}>
+                    {formik.errors.message}
+                  </p>
                   )}
                 </div>
                 <br />

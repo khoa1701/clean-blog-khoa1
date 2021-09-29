@@ -2642,6 +2642,14 @@ textarea.form-control-lg {
 .form-floating {
   position: relative;
 }
+
+.form-floating > .form-control {
+  border-bottom: 1px solid gray;
+}
+.form-floating > .form-control:hover {
+  border-bottom: 1px solid #0085A1;
+}
+
 .form-floating > .form-control,
 .form-floating > .form-select {
   height: 4.5rem;
@@ -11012,9 +11020,7 @@ blockquote {
 
 .form-floating input,
 .form-floating textarea {
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
+  border: none;
 }
 .form-floating input:focus,
 .form-floating textarea:focus {
